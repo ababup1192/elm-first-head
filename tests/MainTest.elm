@@ -94,4 +94,11 @@ updateTest =
                         |> update Eat
                         |> Expect.equal { bentoList = [ { bento | num = 0 }, { bento | num = 0 }, { bento | num = 0 } ], eatCount = 6 }
             ]
+        , describe "空っぽを一つ食べようとすると"
+            [ test "何も変わらない" <|
+                \_ ->
+                    { bentoList = [], eatCount = 0 }
+                        |> update Eat
+                        |> Expect.equal { bentoList = [], eatCount = 0 }
+            ]
         ]
